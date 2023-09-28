@@ -1,32 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+  
 	<%@page isELIgnored ="false" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%@include file="css/allcss.jsp"%>
+<%@include file="../css/allcss.jsp"%>
 </head>
 <body>
-<%@ include file="componant/navbar.jsp" %>
+<%@ include file="../componant/navbar.jsp" %>
 <div class="container p-5">
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<div class="card card-sh">
 					<div class="card-header">
 						<p class="text-center fs-3">Register Here</p>
-						<c:if test="${not empty msg }">
+						
 						<p class ="text-center text-dark fs-4">${msg}</p>
-						<c:remove var="msg"/>
-						</c:if>
+						
 					</div>
 					<div class="card-body">
-					<form action="RegisterServlet" method="post">
+					<form action="register" method="post">
 					<div class="mb-3">
 					<label>Enter Full Name</label>
-					<input type="text" name="fullName" class="form-control" >
+					<input type="text" name="name" class="form-control" >
 					</div>
 					<div class="mb-3">
 					<label>Email</label>

@@ -26,7 +26,7 @@
 				
 				
 					<li class="nav-item"><a class="nav-link active"
-						href="registration.jsp"><i class="fa-solid fa-user-plus"></i>
+						href="views/registration.jsp"><i class="fa-solid fa-user-plus"></i>
 							Register</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						href="login.jsp"><i class="fa-solid fa-right-to-bracket"></i>
