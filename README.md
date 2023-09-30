@@ -95,7 +95,7 @@ Follow these steps to set up and run the Task Management System on your local ma
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/task-management.git
+   [git clone https://github.com/your-username](https://github.com/Akshayyborade/task_management_system.git)/task-management.git
 2.Database Setup:
 
 Create a MySQL database and configure the database properties in src/main/resources/application.properties.
