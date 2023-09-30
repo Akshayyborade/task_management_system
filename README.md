@@ -140,7 +140,7 @@ Open a web browser and go to http://localhost:8080 to access the Task Management
 ![Task List](img/dashboard.png)
 *Caption: This is the task list page displaying all tasks.*
 
-![Register Page](img/register.png)
+![Register Page](img/resister.png)
 *Caption: This is a screenshot of the register page.*
 
 ![Edit Task Page](img/edit.png)
