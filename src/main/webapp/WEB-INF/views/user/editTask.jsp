@@ -1,6 +1,11 @@
-<%@page import="com.project.taskmanager.model.Task"%>
 <%@page import="com.project.taskmanager.service.TaskService"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@page import="com.project.taskmanager.model.Task"%>
+<%@ page import="org.springframework.web.context.WebApplicationContext,
+    org.springframework.web.context.support.WebApplicationContextUtils" %>
+<%@ page import="com.project.taskmanager.service.TaskService" %>
+
 
 
 <!DOCTYPE html>
@@ -21,36 +26,28 @@
 	</c:if>
 	<div class="container">
 		<h1 class="text-center">Edit Task</h1>
-		<%
-		// Retrieve task details based on the ID passed in the URL
 		
-		Long taskId = Long.parseLong(request.getParameter("id"));
-		TaskService taskService = new TaskService();
-		Task task = taskService.getTaskById(taskId);
 
-	
-		%>
+		<form action="user/updateTask" method="post">
 
-		<form action="updateTask" method="post">
-
-			<input type="hidden" name="task_id" value="<%=task.getId() %>">
+			<input type="hidden" name="task_id" value="${task.id }">
 
 			<div class="mb-3">
 				<label for="task_title">Task Title</label> <input type="text"
 					class="form-control" id="task_title" name="task_title"
-					value="<%=task.getTitle() %>">
+					value="${task.id }">
 			</div>
 
 			<div class="mb-3">
 				<label for="task_description">Task Description</label>
 				<textarea class="form-control" id="task_description"
-					name="task_description"><%=task.getDescription() %></textarea>
+					name="task_description">${task.id }</textarea>
 			</div>
 
 			<div class="mb-3">
 				<label for="task_due_date">Due Date</label> <input type="date"
 					class="form-control" id="task_due_date" name="task_due_date"
-					value="<%=task.getDueDate() %>">
+					value="${task.id }">
 			</div>
 
 			<div class="mb-3">

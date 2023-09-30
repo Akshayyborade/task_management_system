@@ -63,7 +63,7 @@ public class TaskDao {
     }
 	
 	public Task getTaskById(Long id) {
-		Task task = (Task) hibernateTemplate.find("from Task t where t.id = ?0", id);
+		Task task = (Task) hibernateTemplate.get(Task.class, id);
 		System.out.println(task);
         return task;
     }
