@@ -98,7 +98,7 @@ Follow these steps to set up and run the Task Management System on your local ma
    git clone https://github.com/your-username](https://github.com/Akshayyborade/task_management_system.git)/task-management.git
 2.Database Setup:
 
-Create a MySQL database and configure the database properties in src/main/resources/application.properties.
+Create a MySQL database and configure the database properties in config/Dbconfig.java.
 Build and Run:
 maven
 
