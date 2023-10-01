@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -107,12 +108,47 @@ public class TaskController {
 	}
 
 	@PostMapping("/updateTask")
-	public String editTask(@ModelAttribute Task task) {
+	public String editTask(
+	        @RequestParam String title,
+	        @RequestParam String description,
+	        @RequestParam String dueDate,
+	        @RequestParam(value = "status", defaultValue = "false") boolean status,
+	        @RequestParam String assignedUser,
+	        @RequestParam("id") Long taskId) {
 
-		taskService.updateTask(task);
-		return "redirect:/user";
+	    Task task;
 
+	    try {
+	        Long assignedId = Long.parseLong(assignedUser);
+	        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	        Date parsedDueDate = dateFormat.parse(dueDate);
+	        User assignUser = userService.getUserById(assignedId);
+
+	        // Fetch the existing task
+	        Task existingTask = taskService.getTaskById(taskId);
+
+	        // Update the existing task with the new data
+	        existingTask.setTitle(title);
+	        existingTask.setDescription(description);
+	        existingTask.setDueDate(parsedDueDate);
+	        existingTask.setStatus(status);
+	        existingTask.setAssignedUser(assignUser);
+
+	        // Update the task in the database
+	        taskService.updateTask(existingTask);
+	    } catch (ParseException e) {
+	        // Handle the parsing error
+	        e.printStackTrace();
+	        // You can add error handling logic here
+	        return "redirect:/user/errorPage"; // Redirect to an error page
+	    }
+
+	    return "redirect:/user";
 	}
+
+
+
+
 	@PostMapping("/deleteTask")
     public String deleteTask(@RequestParam("taskId") Long taskId , HttpSession session) {
         taskService.deleteTask(taskId);

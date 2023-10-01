@@ -2,9 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="com.project.taskmanager.model.Task"%>
-<%@ page import="org.springframework.web.context.WebApplicationContext,
-    org.springframework.web.context.support.WebApplicationContextUtils" %>
-<%@ page import="com.project.taskmanager.service.TaskService" %>
+<%@ page
+	import="org.springframework.web.context.WebApplicationContext,
+    org.springframework.web.context.support.WebApplicationContextUtils"%>
+<%@ page import="com.project.taskmanager.service.TaskService"%>
 
 
 
@@ -26,52 +27,49 @@
 	</c:if>
 	<div class="container">
 		<h1 class="text-center">Edit Task</h1>
-		
 
-		<form action="user/updateTask" method="post">
 
-			<input type="hidden" name="task_id" value="${task.id }">
+		<form action="user/updateTask" method="post">${task.id }
+			<input type="hidden" name="id" value="${task.id }">
 
 			<div class="mb-3">
 				<label for="task_title">Task Title</label> <input type="text"
-					class="form-control" id="task_title" name="task_title"
-					value="${task.id }">
+					class="form-control" id="title" name="title" value="${task.title}">
 			</div>
 
 			<div class="mb-3">
 				<label for="task_description">Task Description</label>
-				<textarea class="form-control" id="task_description"
-					name="task_description">${task.id }</textarea>
+				<textarea class="form-control" id="description" name="description">${task.description}</textarea>
 			</div>
 
 			<div class="mb-3">
 				<label for="task_due_date">Due Date</label> <input type="date"
-					class="form-control" id="task_due_date" name="task_due_date"
-					value="${task.id }">
+					class="form-control" id="dueDate" name="dueDate"
+					value="<fmt:formatDate value='${task.dueDate}' pattern='yyyy-MM-dd' />">
 			</div>
-
 			<div class="mb-3">
-				<label for="task_assigned_to">Assigned To</label> <select
-					class="form-control" id="task_assigned_to" name="task_assigned_to">
-					<option value="">Select a user</option>
+				<label for="status" class="form-label">Status</label> <select
+					class="form-select" id="status" name="status">
+					<option value="true" ${task.status ? 'selected' : ''}>Completed</option>
+					<option value="false" ${!task.status ? 'selected' : ''}>In
+						Progress</option>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label for="assignedUser" class="form-label">Assigned To</label> <select
+					class="form-select" id="assignedUser" name="assignedUser">
 					<c:forEach var="user" items="${users}">
-						<option value="${user.id}">${user.name}</option>
+						<option value="${user.id}"
+							${user.id == task.assignedUser.id ? 'selected' : ''}>${user.name}</option>
 					</c:forEach>
 				</select>
 			</div>
 
-			<div class="mb-3">
-				<label for="task_status">Status</label> <select class="form-control"
-					id="task_status" name="task_status">
 
-					<option value="in_progress">In Progress</option>
-					<option value="completed">Completed</option>
-				</select>
-			</div>
 
 			<button type="submit" class="btn btn-primary">Save</button>
 		</form>
-		
+
 	</div>
 
 	<script

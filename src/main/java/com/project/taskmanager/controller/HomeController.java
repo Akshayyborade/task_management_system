@@ -1,5 +1,7 @@
 package com.project.taskmanager.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.taskmanager.model.Task;
+import com.project.taskmanager.model.User;
 import com.project.taskmanager.service.TaskService;
+import com.project.taskmanager.service.UserService;
 
 @Controller
 public class HomeController {
 	@Autowired
 	private TaskService taskService;
+	@Autowired
+	private UserService userService;
 	
     @RequestMapping("/")
 	public String home() {
@@ -40,7 +46,9 @@ public class HomeController {
    @GetMapping("/editTask")
    public String editTask(Model model, @RequestParam("id") Long taskId) {
        Task task = taskService.getTaskById(taskId);
+       List<User> users= userService.getAllUser();
        model.addAttribute("task", task);
+       model.addAttribute("users",users);
        return "user/editTask"; // Assuming your JSP file is named "editTask.jsp"
    }
    @GetMapping("/logOut")

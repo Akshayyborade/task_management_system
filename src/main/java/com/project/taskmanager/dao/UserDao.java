@@ -38,5 +38,9 @@ public class UserDao {
 		}
     	return null;
 	}
+	public List<User> getUsers(){
+		List<User> users =hibernateTemplate.loadAll(User.class);
+		return users;
+	}
 
 }
