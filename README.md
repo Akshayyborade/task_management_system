@@ -18,7 +18,7 @@ Task Management System is a web application designed to help users organize and 
 ## Features
 
 - **User Authentication and Authorization:**
-  Users can create accounts, log in, and log out. Different roles (e.g., admin, user) have varying access levels.
+  Users can create accounts, log in, and log out. 
 
 - **Task Creation:**
   Users can create tasks by providing a title, description, due date, and other relevant information.
@@ -34,13 +34,7 @@ Task Management System is a web application designed to help users organize and 
 
 - **Task Assignment:**
   Users can assign tasks to specific users or themselves, helping in task delegation and organization.
-
-- **Reminders and Notifications:**
-  Users can set reminders for tasks and receive notifications to ensure they meet deadlines.
-
-- **User Profile Management:**
-  Users can update their profiles, change passwords, and manage account settings.
-
+  
 - **Responsive Design:**
   The application is designed to work seamlessly on various devices, including desktops, tablets, and smartphones.
 
@@ -134,16 +128,16 @@ Open a web browser and go to http://localhost:8080 to access the Task Management
 
 ## Screenshots
 
-![Login Page](screenshots/login-page.png)
+![Login Page](img/login.png)
 *Caption: This is the login page where users can enter their credentials to log in.*
 
-![Task List](screenshots/task-list.png)
+![Task List](img/dashboard.png)
 *Caption: This is the task list page displaying all tasks.*
 
-![Register Page](screenshots/register_page.png)
+![Register Page](img/resister.png)
 *Caption: This is a screenshot of the register page.*
 
-![Edit Task Page](screenshots/edit_task_page.png)
+![Edit Task Page](img/edit.png)
 *Caption: This is a screenshot of the edit task page.*
 ## Contributing
 
